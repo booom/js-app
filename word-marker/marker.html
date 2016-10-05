@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>敏感词标记</title>
+    <link type="text/css" rel="stylesheet" href="css/main.css" />
+    <style>
+    </style>
+    <script type="text/javascript" src="lib/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="lib/autoTextarea.js"></script>
+
+    <script type="text/javascript" src="data/words.js"></script>
+    <script type="text/javascript" src="script/mark.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#btnMark").click(function(){
+                var article = $("#txtArticle").val();
+                var htmlResult = checkAndMark(article);
+                $("#divMarkedArticle").html(htmlResult);
+            });
+
+            var text = document.getElementById("txtArticle");
+            autoTextarea(text);// 调用
+        });
+    </script>
+</head>
+
+<body bgcolor="#f0f0f0">
+    <div>
+        <input type="button" id="btnMark" value="检  测" class="button big blue" />
+    </div>
+    <div>
+        <div class="leftdiv">
+            <div>
+                <textarea id="txtArticle"></textarea>
+            </div>
+        </div>
+        <div class="rightdiv">
+            <div id="divMarkedArticle" />
+        </div>
+    </div>
+</body>
+</html>
